@@ -23,12 +23,12 @@ tar -xzf `ls | grep "openvino_toolkit"`
 cd `ls -d */ | grep "openvino_toolkit"`
 
 apt-get update && apt-get install -y sudo cpio && \
- ./install_cv_sdk_dependencies.sh && SUDO_FORCE_REMOVE=yes apt-get remove -y sudo
+ ./install_openvino_dependencies.sh && SUDO_FORCE_REMOVE=yes apt-get remove -y sudo
 
 cat ../eula.cfg >> silent.cfg
 ./install.sh -s silent.cfg
 
 cd /tmp/components && rm openvino -r
 
-echo "source /opt/intel/computer_vision_sdk/bin/setupvars.sh" >> ${HOME}/.bashrc
-echo -e '\nexport IE_PLUGINS_PATH=${IE_PLUGINS_PATH}' >> /opt/intel/computer_vision_sdk/bin/setupvars.sh
+echo "source /opt/intel/openvino/bin/setupvars.sh" >> ${HOME}/.bashrc
+echo -e '\nexport IE_PLUGINS_PATH=${IE_PLUGINS_PATH}' >> /opt/intel/openvino/bin/setupvars.sh
